@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="keliyan.top">
 
@@ -9,347 +8,379 @@
     <link rel="icon" href="https://s21.ax1x.com/2025/05/02/pEbQ52F.jpg">
     <meta name="description" content="emmm">
     <meta name="keywords" content="emmmm">
-    <meta name="og:title" contect="克隆羊不是阳">
-    <meta name="og:type" contect="website">
+    <meta name="og:title" content="克隆羊不是阳">
+    <meta name="og:type" content="website">
     <meta property="og:locale" content="zh_CN">
-    <meta name="og:image" contect="https://s21.ax1x.com/2025/05/02/pEbQ52F.jpg">
-    <meta name="og:url" contect="https://keliyan.top">
-    <meta name="og:description" contect="">
-    <meta name="og:site_name" contect="克隆羊不是阳">
+    <meta name="og:image" content="https://s21.ax1x.com/2025/05/02/pEbQ52F.jpg">
+    <meta name="og:url" content="https://keliyan.top">
+    <meta name="og:description" content="">
+    <meta name="og:site_name" content="克隆羊不是阳">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="/static/css/style.css?v=1.33">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#747bff',
+                        secondary: '#f76cc6',
+                        accent: '#41d1ff',
+                        dark: '#2c2d30',
+                        light: '#f4f4f4'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .gradient-text {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0px); }
+            }
+        }
+    </style>
 </head>
-<body>
-<!-- 刷新加载动画 -->
-<div id="PageLoading">
-    <div id="PageLoading-zyyo">
-        <div id="PageLoading-zyyo-center">
-            <div class="object" id="object_four"></div>
-            <div class="object" id="object_three"></div>
-            <div class="object" id="object_two"></div>
-            <div class="object" id="object_one"></div>
-        </div>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-dark dark:to-gray-900 min-h-screen transition-colors duration-300">
+    <!-- 刷新加载动画 -->
+    <div id="PageLoading" class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-dark">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
     </div>
-</div>
 
-<div class="main">
-
-    <div onclick="left()" class="left">
-        <div class="left-main">
-            
-            <div  class="logo" style="background-image: url(https://s21.ax1x.com/2025/05/02/pEbQ52F.jpg);"><img style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;" src="/static/img/logo3.png" alt="头像框" title="男同"></div>
-            
-            <div class="left-div left-des">
-                <div class="left-div-item">
-                    <svg t="1705773709627" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" p-id="1478" width="20px" height="20px">
-                        <path
-                            d="M512 249.976471c-99.388235 0-180.705882 81.317647-180.705882 180.705882s81.317647 180.705882 180.705882 180.705882 180.705882-81.317647 180.705882-180.705882-81.317647-180.705882-180.705882-180.705882z m0 301.17647c-66.258824 0-120.470588-54.211765-120.470588-120.470588s54.211765-120.470588 120.470588-120.470588 120.470588 54.211765 120.470588 120.470588-54.211765 120.470588-120.470588 120.470588z"
-                            fill="#2c2c2c" p-id="1479"></path>
-                        <path
-                            d="M512 39.152941c-216.847059 0-391.529412 174.682353-391.529412 391.529412 0 349.364706 391.529412 572.235294 391.529412 572.235294s391.529412-222.870588 391.529412-572.235294c0-216.847059-174.682353-391.529412-391.529412-391.529412z m0 891.482353C424.658824 873.411765 180.705882 686.682353 180.705882 430.682353c0-183.717647 147.576471-331.294118 331.294118-331.294118s331.294118 147.576471 331.294118 331.294118c0 256-243.952941 442.729412-331.294118 499.952941z"
-                            fill="#2c2c2c" p-id="1480"></path>
-                    </svg>
-                    Guangdong
+    <div class="main container mx-auto px-4 py-8 flex flex-col lg:flex-row">
+        <!-- 左侧边栏 -->
+        <div class="left lg:w-1/4 mb-8 lg:mb-0 lg:pr-8">
+            <div class="left-main bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-6 shadow-lg">
+                <!-- 个人信息 -->
+                <div class="text-center mb-6">
+                    <div class="logo relative mx-auto w-32 h-32 rounded-full overflow-hidden border-4 border-primary/20 animate-float">
+                        <img src="https://s21.ax1x.com/2025/05/02/pEbQ52F.jpg" alt="Avatar" class="w-full h-full object-cover">
+                        <img src="/static/img/logo3.png" alt="Avatar Frame" class="absolute inset-0 w-full h-full object-contain">
+                    </div>
+                    <h1 class="text-xl font-bold mt-4 text-gray-800 dark:text-white">KlyBsy</h1>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Guangdong, China</p>
                 </div>
                 
-            </div>
-            <div class="left-div left-tag">
-                <div class="left-tag-item">
-                    数媒
+                <!-- 标签 -->
+                <div class="mb-6">
+                    <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3">Tags</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">数媒</span>
+                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs">0m</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs">13</span>
+                    </div>
                 </div>
-                <div class="left-tag-item">
-                    0m
+                
+                <!-- 时间线 -->
+                <div>
+                    <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3">Timeline</h2>
+                    <div class="space-y-4 pl-4 border-l-2 border-primary/30">
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 rounded-full bg-primary mt-1.5 -ml-5"></div>
+                            <div>
+                                <p class="text-sm text-gray-800 dark:text-white">塌如房</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">2024/10/20</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 rounded-full bg-primary mt-1.5 -ml-5"></div>
+                            <div>
+                                <p class="text-sm text-gray-800 dark:text-white">💗</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">2025/01/26</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 rounded-full bg-primary mt-1.5 -ml-5"></div>
+                            <div>
+                                <p class="text-sm text-gray-800 dark:text-white">所有域名替换为*.keliyan.top，其余域名陆续失效。</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">2025/03/30</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 rounded-full bg-primary mt-1.5 -ml-5"></div>
+                            <div>
+                                <p class="text-sm text-gray-800 dark:text-white">❤️‍🩹</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">2025/04/30</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="left-tag-item">
-                    13
-                </div>
-            </div>
-
-
-            <div class="left-div left-time">
-                <ul id="line">
-                    <li>
-                        <div class="focus"></div>
-                        <div>...</div>
-                        <div>...</div>
-                    </li>
-                    <li>
-                        <div class="focus"></div>
-                        <div>塌如房</div>
-                        <div>2024/10/20</div>
-                    </li>
-                    <li>
-                        <div class="focus"></div>
-                        <div>💗</div>
-                        <div>2025/01/26</div>
-                    </li>
-                    <li>
-                        <div class="focus"></div>
-                        <div>所有域名替换为*.keliyan.top，其余域名陆续失效。</div>
-                        <div>2025/03/30</div>
-                    </li>
-                    <li>
-                        <div class="focus"></div>
-                        <div>❤️‍🩹</div>
-                        <div>2025/04/30</div>
-                    </li>
-                    <li>
-                        <div class="focus"></div>
-                        <div>...</div>
-                        <div>...</div>
-                    </li>
-                    
-                </ul>
             </div>
         </div>
-    </div>
-    <div class="right">
-
-
-        <header> <!-- 头部开始 -->
-            <div class="welcome">Hi! I'm <span class="gradientText">KlyBsy</span></div>
-            <div class="description">👦 <span class="purpleText"> I'm Gay</span> But I'm happy.
-            </div>
-            <div class="description">📝 The only way to do
-                <span class="purpleText textBackground">great</span>
-                is to
-                <span class="purpleText textBackground">love</span> what you do.
-            </div>
-            <div class="iconContainer"> <!-- 图标容器开始 -->
-
+        
+        <!-- 右侧内容 -->
+        <div class="right lg:w-3/4">
+            <!-- 欢迎部分 -->
+            <header class="mb-10 bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-8 shadow-lg">
+                <h1 class="welcome text-[clamp(2rem,5vw,3.5rem)] font-bold gradient-text mb-4">Hi! I'm <span>KlyBsy</span></h1>
+                <p class="description text-[clamp(1rem,2vw,1.25rem)] mb-2">👦 <span class="text-primary font-semibold"> I'm Gay</span> But I'm happy.</p>
+                <p class="description text-[clamp(1rem,2vw,1.25rem)]">📝 The only way to do
+                    <span class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded font-semibold">great</span>
+                    is to
+                    <span class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded font-semibold">love</span> what you do.
+                </p>
                 
-                <!---->
-
+                <!-- 社交图标 -->
+                <div class="iconContainer flex flex-wrap gap-3 mt-6">
+                    <a href="mailto:index@keliyan.top" class="iconItem bg-white/80 dark:bg-gray-800/80 hover:bg-primary hover:text-white p-3 rounded-lg shadow-sm transition-all duration-300 flex items-center gap-2">
+                        <i class="fa fa-envelope"></i>
+                        <span class="hidden md:inline">Mail</span>
+                    </a>
+                    <button id="themeToggle" class="iconItem bg-white/80 dark:bg-gray-800/80 hover:bg-primary hover:text-white p-3 rounded-lg shadow-sm transition-all duration-300 flex items-center gap-2">
+                        <i class="fa fa-moon-o dark:hidden"></i>
+                        <i class="fa fa-sun-o hidden dark:inline"></i>
+                    </button>
+                </div>
                 
-                <!---->
-                <a class="iconItem" target="_blank" href="mailto:index@keliyan.top">
-                    <svg t="1704870588438" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" p-id="3174" width="22px" height="22px">
-                        <path
-                            d="M926.47619 355.644952V780.190476a73.142857 73.142857 0 0 1-73.142857 73.142857H170.666667a73.142857 73.142857 0 0 1-73.142857-73.142857V355.644952l304.103619 257.828572a170.666667 170.666667 0 0 0 220.745142 0L926.47619 355.644952zM853.333333 170.666667a74.044952 74.044952 0 0 1 26.087619 4.778666 72.704 72.704 0 0 1 30.622477 22.186667 73.508571 73.508571 0 0 1 10.678857 17.67619c3.169524 7.509333 5.12 15.652571 5.607619 24.210286L926.47619 243.809524v24.380952L559.469714 581.241905a73.142857 73.142857 0 0 1-91.306666 2.901333l-3.632762-2.925714L97.52381 268.190476v-24.380952a72.899048 72.899048 0 0 1 40.155428-65.292191A72.97219 72.97219 0 0 1 170.666667 170.666667h682.666666z"
-                            fill="#000000" p-id="3175"></path>
-                    </svg>
-                    <div class="iconTip">Mail</div>
-                </a>
-                
-                <!---->
-                
-                    <a class="iconItem switch" href="javascript:void(0)">
-                    <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"
-                            checked>
-                        <label class="onoffswitch-label" for="myonoffswitch">
-                            <span class="onoffswitch-inner"></span>
-                            <span class="onoffswitch-switch"></span>
-                        </label>
-                    </div>
-                </a>
-                <!---->
-            </div> <!-- 图标容器结束 -->
-
-            <div class="tanChiShe">
-                <img id="tanChiShe" src="/static/svg/snake-Light.svg" alt="">
-            </div>
-        </header> <!-- 头部结束 -->
-
-
-
-        <content>
-            <!-- 内容开始 -->
-            <div class="title">
-                <svg t="1705257422086" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" p-id="1891" width="26px" height="26px">
-                    <path
-                        d="M629.333333 202.666667v213.333333h277.333334v448h-512v-213.333333h-277.333334v-448h512z m213.333334 277.333333h-213.333334v170.666667h-170.666666v149.333333h384v-320z m-277.333334-213.333333h-384v320h213.333334v-170.666667h170.666666v-149.333333z m0 213.333333h-106.666666v106.666667h106.666666v-106.666667z"
-                        fill="#000000" p-id="1892"></path>
-                </svg>
-                Social Media
-            </div>
-            <div class="projectList">
-                <!-- 项目列表开始 -->
-                <!---->
-                <a class="projectItem" target="_blank" href="https://t.me/klybsy">
-                    <!-- 项目项开始 -->
-                    <div class="projectItemLeft">
-                        <h1>Telegram</h1>
-                        <p></p>
-                    </div>
-                    <div class="projectItemRight">
-                        <img src="https://i.jpg.dog/4f8e87a5e4a84f36fff84fc7877f2fd0.png" alt="">
-                    </div>
-                    <!-- 项目项结束 -->
-                </a>
-                <!---->
-                <a class="projectItem" target="_blank" href="https://www.douyin.com/user/MS4wLjABAAAApEMb1M-vibiDlNwTum3FGEhrXVSP2xuRpmBrNLI9TmU?from_tab_name=main">
-                    <!-- 项目项开始 -->
-                    <div class="projectItemLeft">
-                        <h1>Douyin</h1>
-                        <p></p>
-                    </div>
-                    <div class="projectItemRight">
-                        <img src="https://i.jpg.dog/af0359a50327b6adde00d72588cd9c2c.png" alt="">
-                    </div>
-                    <!-- 项目项结束 -->
-                </a>
-                <a class="projectItem" target="_blank" href="https://x.com/klymexyz">
-                    <!-- 项目项开始 -->
-                    <div class="projectItemLeft">
-                        <h1>X</h1>
-                        <p>Nothing you want.</p>
-                    </div>
-                    <div class="projectItemRight">
-                        <img src="https://i.jpg.dog/797f0c4e5735f6b4cb43f04f39dba1a6.png" alt="">
-                    </div>
-                    <!-- 项目项结束 -->
-                </a>
-                 <a class="projectItem" target="_blank" href="https://bsky.app/profile/klymexyz.bsky.social">
-                    <!-- 项目项开始 -->
-                    <div class="projectItemLeft">
-                        <h1>Bluesky</h1>
-                        <p>Nothing you want.</p>
-                    </div>
-                    <div class="projectItemRight">
-                        <img src="https://i.jpg.dog/e869c0515acd9c38b3e14fa3897549ed.png" alt="">
-                    </div>
-                    <!-- 项目项结束 -->
-                </a>
-               
-                <!---->
-                <!---->
-            </div>
-           <div class="title">
-                <svg t="1705257422086" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" p-id="1891" width="26px" height="26px">
-                    <path
-                        d="M629.333333 202.666667v213.333333h277.333334v448h-512v-213.333333h-277.333334v-448h512z m213.333334 277.333333h-213.333334v170.666667h-170.666666v149.333333h384v-320z m-277.333334-213.333333h-384v320h213.333334v-170.666667h170.666666v-149.333333z m0 213.333333h-106.666666v106.666667h106.666666v-106.666667z"
-                        fill="#000000" p-id="1892"></path>
-                </svg>
-                ProJect
-            </div>
-            <div class="projectList">
-                <!-- 项目列表开始 -->
-                
-                <a class="projectItem" target="_blank" href="https://noad.keliyan.top">
-                    <!-- 项目项开始 -->
-                    <div class="projectItemLeft">
-                        <h1>Github Proxy</h1>
-                        <p>Speed up GitHub files.</p>
-                    </div>
-                    <div class="projectItemRight">
-                        <img src="https://i.jpg.dog/9b89ec01216cdd8e0ce92a6d4fe807c0.png" alt="">
-                    </div>
-                    <!-- 项目项结束 -->
-                    <a class="projectItem" target="_blank" href="https://i.keliyan.top">
-                        <!-- 项目项开始 -->
-                       <div class="projectItemLeft">
-                           <h1>Notebook</h1>
-                           <p>An online notebook.</p>
-                       </div>
-                       <div class="projectItemRight">
-                           <img src="https://i.jpg.dog/08e103507913eb8da44a4d7fc2cd251b.png" alt="">
-                       </div>
-                       <!-- 项目项结束 -->
-                       <a class="projectItem" target="_blank" href="https://2048.keliyan.top">
-                    <!-- 项目项开始 -->
-                    <div class="projectItemLeft">
-                        <h1>2048 Mini Games</h1>
-                        <p>Combine the same numbers to get 2048!</p>
-                    </div>
-                    <div class="projectItemRight">
-                        <img src="https://s21.ax1x.com/2025/05/02/pEbQ0C8.png" alt="">
-                    </div>
-                    <!-- 项目项结束 -->
-                       <a class="projectItem" target="_blank" href="https://snake.keliyan.top">
-                    <!-- 项目项开始 -->
-                    <div class="projectItemLeft">
-                        <h1>Snake</h1>
-                        <p>Make the snake body longer!</p>
-                    </div>
-                    <div class="projectItemRight">
-                        <img src="https://s21.ax1x.com/2025/05/02/pEbQDgg.png" alt="">
-                    </div>
-                    <!-- 项目项结束 -->
-                </a>
-                           <a class="projectItem" target="_blank" href="https://tetris.keliyan.top">
-                    <!-- 项目项开始 -->
-                    <div class="projectItemLeft">
-                        <h1>Tetris</h1>
-                        <p>Fill up and get points!</p>
-                    </div>
-                    <div class="projectItemRight">
-                        <img src="https://s21.ax1x.com/2025/05/02/pEbQRU0.png" alt="">
-                    </div>
-                    <!-- 项目项结束 -->
-                    <a class="projectItem" target="_blank" href="https://minesweeper.keliyan.top">
-                        <!-- 项目项开始 -->
-                        <div class="projectItemLeft">
-                            <h1>Minesweeper</h1>
-                            <p>Test your nerves, outsmart hidden danger.</p>
+                <!-- 贪吃蛇图片 -->
+                <div class="tanChiShe mt-8">
+                    <img id="tanChiShe" src="/static/svg/snake-Light.svg" alt="Snake" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            </header>
+            
+            <!-- 社交媒体 -->
+            <section class="mb-10">
+                <div class="title flex items-center gap-3 mb-4">
+                    <i class="fa fa-link text-primary text-xl"></i>
+                    <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Social Media</h2>
+                </div>
+                <div class="projectList grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="https://t.me/klybsy" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Telegram</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400"></p>
                         </div>
                         <div class="projectItemRight">
-                            <img src="https://s21.ax1x.com/2025/05/02/pEbQd4f.png" alt="">
+                            <img src="https://i.jpg.dog/4f8e87a5e4a84f36fff84fc7877f2fd0.png" alt="Telegram" class="w-10 h-10 object-contain">
                         </div>
-                        <!-- 项目项结束 -->
-                        <a class="projectItem" target="_blank" href="https://fk.keliyan.top">
-                            <!-- 项目项开始 -->
-                            <div class="projectItemLeft">
-                                <h1>Memory Flip</h1>
-                                <p>Flip, reveal, be amazed.</p>
-                            </div>
-                            <div class="projectItemRight">
-                                <img src="https://s21.ax1x.com/2025/05/02/pEbQW5V.png" alt="">
-                            </div>
-                            <!-- 项目项结束 -->
-                </a>
+                    </a>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAApEMb1M-vibiDlNwTum3FGEhrXVSP2xuRpmBrNLI9TmU?from_tab_name=main" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Douyin</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400"></p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://i.jpg.dog/af0359a50327b6adde00d72588cd9c2c.png" alt="Douyin" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://x.com/klymexyz" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">X</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Nothing you want.</p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://i.jpg.dog/797f0c4e5735f6b4cb43f04f39dba1a6.png" alt="X" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://bsky.app/profile/klymexyz.bsky.social" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Bluesky</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Nothing you want.</p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://i.jpg.dog/e869c0515acd9c38b3e14fa3897549ed.png" alt="Bluesky" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
                 </div>
-            <div class="title">
-                <svg t="1705257823317" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" p-id="7833" width="26px" height="26px">
-                    <path
-                        d="M395.765333 586.570667h-171.733333c-22.421333 0-37.888-22.442667-29.909333-43.381334L364.768 95.274667A32 32 0 0 1 394.666667 74.666667h287.957333c22.72 0 38.208 23.018667 29.632 44.064l-99.36 243.882666h187.050667c27.509333 0 42.186667 32.426667 24.042666 53.098667l-458.602666 522.56c-22.293333 25.408-63.626667 3.392-54.976-29.28l85.354666-322.421333zM416.714667 138.666667L270.453333 522.581333h166.869334a32 32 0 0 1 30.933333 40.181334l-61.130667 230.954666 322.176-367.114666H565.312c-22.72 0-38.208-23.018667-29.632-44.064l99.36-243.882667H416.714667z"
-                        fill="#000000" p-id="7834"></path>
-                </svg>
-                skills
-            </div>
-            <div class="skill">
-                <!-- 技能开始 -->
-                <!-- 前往https://skillicons.dev/
-            生成，一个pc端，一个移动端，区别是一行的个数 -->
-                <img id="skillPc" src="https://skillicons.dev/icons?i=apple,azure,bash,cloudflare,docker,github,linux,md,ps,twitter,vscode,workers" alt="" srcset="">
-                <img id="skillWap" src="https://skillicons.dev/icons?i=apple,azure,bash,cloudflare,docker,github,linux,md,ps,twitter,vscode&perline=8" alt="" srcset="">
-            </div>
-            <!-- 技能结束 -->
-        </content> <!-- 内容结束 -->
-
-        <footer>
-            KlyBsy © 2024 
+            </section>
             
-        </footer>
-
+            <!-- 项目 -->
+            <section class="mb-10">
+                <div class="title flex items-center gap-3 mb-4">
+                    <i class="fa fa-code text-primary text-xl"></i>
+                    <h2 class="text-2xl font-bold text-gray-800 dark:text-white">ProJect</h2>
+                </div>
+                <div class="projectList grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="https://noad.keliyan.top" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Github Proxy</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Speed up GitHub files.</p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://i.jpg.dog/9b89ec01216cdd8e0ce92a6d4fe807c0.png" alt="Github Proxy" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://i.keliyan.top" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Notebook</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">An online notebook.</p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://i.jpg.dog/08e103507913eb8da44a4d7fc2cd251b.png" alt="Notebook" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://2048.keliyan.top" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">2048 Mini Games</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Combine the same numbers to get 2048!</p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://s21.ax1x.com/2025/05/02/pEbQ0C8.png" alt="2048" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://snake.keliyan.top" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Snake</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Make the snake body longer!</p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://s21.ax1x.com/2025/05/02/pEbQDgg.png" alt="Snake" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://tetris.keliyan.top" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Tetris</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Fill up and get points!</p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://s21.ax1x.com/2025/05/02/pEbQRU0.png" alt="Tetris" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://minesweeper.keliyan.top" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Minesweeper</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Test your nerves, outsmart hidden danger.</p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://s21.ax1x.com/2025/05/02/pEbQd4f.png" alt="Minesweeper" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
+                    <a href="https://fk.keliyan.top" class="projectItem bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-5 shadow-lg card-hover flex items-center">
+                        <div class="projectItemLeft flex-1">
+                            <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Memory Flip</h1>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Flip, reveal, be amazed.</p>
+                        </div>
+                        <div class="projectItemRight">
+                            <img src="https://s21.ax1x.com/2025/05/02/pEbQW5V.png" alt="Memory Flip" class="w-10 h-10 object-contain">
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- 技能 -->
+            <section class="mb-10">
+                <div class="title flex items-center gap-3 mb-4">
+                    <i class="fa fa-star text-primary text-xl"></i>
+                    <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Skills</h2>
+                </div>
+                <div class="skill bg-white/80 dark:bg-dark/80 backdrop-blur-md rounded-xl p-6 shadow-lg">
+                    <img id="skillPc" src="https://skillicons.dev/icons?i=apple,azure,bash,cloudflare,docker,github,linux,md,ps,twitter,vscode,workers" alt="Skills" class="w-full h-auto rounded-lg">
+                    <img id="skillWap" src="https://skillicons.dev/icons?i=apple,azure,bash,cloudflare,docker,github,linux,md,ps,twitter,vscode&perline=8" alt="Skills (Mobile)" class="w-full h-auto rounded-lg hidden md:block">
+                </div>
+            </section>
+            
+            <!-- 页脚 -->
+            <footer class="text-center text-gray-500 dark:text-gray-400 text-sm">
+                KlyBsy © 2024
+            </footer>
+        </div>
     </div>
-</div> <!-- main结束 -->
-<!--弹窗-->
-
-<div class="tc">
-    <div class="tc-main">
-        <img class="tc-img" src="" alt="" srcset="">
+    
+    <!-- 弹出层 -->
+    <div class="tc fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">
+        <div class="tc-main bg-white rounded-xl overflow-hidden max-w-md w-full mx-4 shadow-2xl transform transition-all duration-300 scale-95 opacity-0">
+            <img class="tc-img w-full h-auto" src="" alt="Image">
+        </div>
+        <button onclick="wx()" class="tc-close absolute top-6 right-6 bg-white/80 hover:bg-white text-gray-800 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300">
+            <i class="fa fa-times"></i>
+        </button>
     </div>
-    <div onclick="wx()" class="tc-close"><svg t="1700047644371" class="icon" viewBox="0 0 1024 1024" version="1.1"
-            xmlns="http://www.w3.org/2000/svg" p-id="950" width="19px" height="19px">
-            <path
-                d="M610.616405 512.423878l391.647127 391.939565a68.722849 68.722849 0 0 1 0 98.332161 72.012772 72.012772 0 0 1-100.306115 0l-390.404267-391.354689-392.012675 391.28158a69.74638 69.74638 0 0 1-98.551489-98.551489l391.793346-391.720237L20.988986 119.533891A69.74638 69.74638 0 0 1 119.540475 20.982402l392.158893 392.451331L901.957417 23.248793a72.012772 72.012772 0 0 1 100.306115 0 68.722849 68.722849 0 0 1 0 98.332161L610.616405 512.423878z"
-                p-id="951" fill="#000000"></path>
-        </svg></div>
-</div>
 
-
-
+    <script>
+        // 页面加载完成后隐藏加载动画
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('PageLoading').classList.add('opacity-0');
+                setTimeout(function() {
+                    document.getElementById('PageLoading').style.display = 'none';
+                }, 500);
+            }, 800);
+        });
+        
+        // 主题切换
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+        
+        // 检查用户之前的主题偏好
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // 侧边栏切换（移动端）
+        function left() {
+            document.querySelector('.left').classList.toggle('left-open');
+            document.querySelector('.left-main').classList.toggle('left-main-open');
+        }
+        
+        // 弹出层相关函数
+        function wx() {
+            const tc = document.querySelector('.tc');
+            const tcMain = document.querySelector('.tc-main');
+            
+            tcMain.classList.remove('scale-100', 'opacity-100');
+            tcMain.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(function() {
+                tc.classList.add('hidden');
+            }, 300);
+        }
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 项目项淡入动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.projectItem').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({ id: "KFqltKSkJgQTGD9l", ck: "KFqltKSkJgQTGD9l" })</script>
 </body>
-
-<script src="/static/js/script.js?v=1.33"> </script>
-
-<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-<script>LA.init({ id: "KFqltKSkJgQTGD9l", ck: "KFqltKSkJgQTGD9l" })</script>
 
 </html>
